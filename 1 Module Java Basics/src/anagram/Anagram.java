@@ -1,8 +1,17 @@
 package anagram;
 
+import java.io.*;
+
 public class Anagram {
-	public static void main(String[] args){
-		System.out.println("Amazing code will be here");
+	public static void main(String[] args)throws Exception{
+		
+		System.out.println(outputLine("mama mila ramu"));
+		
+	}
+	
+
+	public static String outputLine(String string){
+		return new StringBuilder(string).reverse().toString();
 	}
 
 }
