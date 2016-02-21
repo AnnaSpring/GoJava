@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class Distance {
 	public static void main(String[] args) throws Exception{
 		
-		ArrayList<Integer> list = inputDigits();
+		ArrayList<Integer> list = userInputDigits();
 		for(Integer i : list){
 			System.out.print(i + " ");
 		}
