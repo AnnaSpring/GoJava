@@ -17,7 +17,7 @@ public class Distance {
 		
 	}
 	
-	public static ArrayList<Integer> inputDigits() throws Exception {
+	public static ArrayList<Integer> userInputDigits() throws Exception {
 		
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
