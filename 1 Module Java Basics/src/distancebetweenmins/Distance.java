@@ -15,12 +15,22 @@ public class Distance {
 		}
 		System.out.println();
 		System.out.println();
-		System.out.println(findMinsInArray(distance(list)));
+		ArrayList<Integer> miin = findMinsInArray(list);
+		for(Integer r : miin){
+			System.out.print(r + " ");
+		}
+		
+		System.out.println();
+		System.out.println();
+		
+		ArrayList<Integer> d = distance(miin);
+		for(Integer f:d)
+			System.out.print(f + " ");
 
 		
 	}
 	
-	public static ArrayList<Integer> userInputDigits() throws Exception {
+	private static ArrayList<Integer> userInputDigits() throws Exception {
 		
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
@@ -38,7 +48,7 @@ public class Distance {
 		return list;
 	}
 	
-	public static ArrayList<Integer> findMinsInArray(ArrayList<Integer> list){
+	private static ArrayList<Integer> findMinsInArray(ArrayList<Integer> list){
 		int min = list.get(0);
 		ArrayList<Integer> listOfMins = new ArrayList<Integer>();
 		for(int i = 0; i < list.size(); i++){
@@ -54,9 +64,13 @@ public class Distance {
 		if(listOfMins.size() < 2){
 			int min2 = list.get(0);
 			for(int i = 0; i < list.size(); i++){
-				if(list.get(i) != min){
-					if(list.get(i) < min2)
+				if(listOfMins.contains(i)){
+					break;
+				}
+				else{
+					if(min2 < list.get(i)){
 						min2 = list.get(i);
+				}
 				}
 			}
 			
@@ -70,8 +84,12 @@ public class Distance {
 	
 	private static ArrayList<Integer> distance(ArrayList<Integer> list){
 		ArrayList<Integer> dist = new ArrayList<Integer>();
-		for(int i = 0; i < list.size(); i++){
-			dist.add(list.get(i + 1)-list.get(i));
+		int difference = 0;
+		for(int i = 0; i < list.size() - 1; i++){
+			for(int j = 1; j < list.size(); j++){
+				difference = Math.abs(list.get(i) - list.get(i + 1));
+				dist.add(difference);
+			}
 		}
 		return dist;
 	}
