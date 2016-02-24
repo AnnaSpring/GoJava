@@ -4,10 +4,10 @@ public class LonelyNumber {
 
 	public static void main(String[] args) {
 		int[] numberList = {2, 3, 2, 4, 3, 7, 7, 7, 11, 2, 3, 4, 4};
-		System.out.println(method(numberList));
+		System.out.println(findLonelyNumber(numberList));
 	}
 	
-	private static int method(int[] array){
+	private static int findLonelyNumber(int[] array){
 		int result = 0;
 		int count = 0;
 		for(int i = 0; i < array.length; i++){
