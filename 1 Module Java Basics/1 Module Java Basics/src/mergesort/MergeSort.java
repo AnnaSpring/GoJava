@@ -3,20 +3,21 @@ package mergesort;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class MergeSort {
     public static void main(String[] args) throws IOException{
         System.out.println("Enter 10 integer numbers:");
-        int[] checkArray = userInput();
+        int[] numbers = userInput();
         System.out.println("Your entered numbers:");
-        printToConsole(checkArray);
+        System.out.println(Arrays.toString(numbers));
         
-        checkArray = mergeSort(checkArray);//sorting array using merge sort
+        numbers = mergeSort(numbers);//sorting array using merge sort
 
         System.out.println();
         System.out.println("Numbers after merge sorting:");
 
-        printToConsole(checkArray);
+        System.out.println(Arrays.toString(numbers));
     }
 
     private static int[] userInput() throws IOException{
@@ -27,8 +28,7 @@ public class MergeSort {
             try{
                 int number = Integer.parseInt(inputString);
                 resultArray[i] = number;
-            }
-            catch(NumberFormatException e){
+            } catch(NumberFormatException e){
                 System.out.println(e);
             }
         }
@@ -70,40 +70,34 @@ public class MergeSort {
     private static int[] merge (int[] left, int[] right){
         int lengthResult = left.length + right.length;
         int[] result = new int[lengthResult];
-        int indexL = 0;
-        int indexR = 0;
+        int indexLeft = 0;
+        int indexRight = 0;
         int indexRes = 0;
 
-        while(indexL < left.length || indexR < right.length){
-            if(indexL < left.length && indexR < right.length){
-                if(left[indexL] <= right[indexR]){
-                    result[indexRes] = left[indexL];
-                    indexL++;
+        while(indexLeft < left.length || indexRight < right.length){
+            if(indexLeft < left.length && indexRight < right.length){
+                if(left[indexLeft] <= right[indexRight]){
+                    result[indexRes] = left[indexLeft];
+                    indexLeft++;
                     indexRes++;
                 }
                 else{
-                    result[indexRes] = right[indexR];
-                    indexR++;
+                    result[indexRes] = right[indexRight];
+                    indexRight++;
                     indexRes++;
                 }
             }
-            else if(indexL < left.length){
-                result[indexRes] = left[indexL];
-                indexL++;
+            else if(indexLeft < left.length){
+                result[indexRes] = left[indexLeft];
+                indexLeft++;
                 indexRes++;
                 }
-            else if(indexR < right.length){
-                result[indexRes] = right[indexR];
-                indexR++;
+            else if(indexRight < right.length){
+                result[indexRes] = right[indexRight];
+                indexRight++;
                 indexRes++;
             }
         }
         return result;
-    }
-    
-    private static void printToConsole(int[] list){
-        for(int i = 0; i < list.length; i++){
-            System.out.print(list[i] + " ");
-        }
     }
 }
