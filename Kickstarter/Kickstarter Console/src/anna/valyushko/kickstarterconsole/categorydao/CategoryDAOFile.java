@@ -12,7 +12,7 @@ public class CategoryDAOFile extends CategoryDAO {
 
 
     @Override
-    public List<Category> fillCategoryName() {
+    public List<Category> fillCategories() {
         List<Category> categories = new ArrayList<Category>();
         try (BufferedReader is = new BufferedReader(new FileReader(CATEGORIES_FILE_NAME))) {
             String line;

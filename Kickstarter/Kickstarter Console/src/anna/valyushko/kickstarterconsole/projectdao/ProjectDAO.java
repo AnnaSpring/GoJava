@@ -10,13 +10,21 @@ public abstract class ProjectDAO {
     
     public abstract List<Project> fillProject();
     
+   
+    public List<Project> getProject(){
+        return projects;
+    }
     
-    public void printProjects(){
-        for(int i = 1; i < projects.size() + 1; i++){
-            System.out.print(i + " - " + projects.get(i).getName() + ": ");
+    
+
+    
+    public void printProjects(){        
+        for(int i = 0; i < projects.size(); i++){
+            System.out.print((i + 1) + " - " + projects.get(i).getName() + ": ");
             System.out.println(projects.get(i).getDescription());
-            System.out.println("Need to gather " + projects.get(i).getRequiredBudget() + " in ");
+            System.out.print("Need to gather " + projects.get(i).getRequiredBudget() + " in ");
             System.out.println(projects.get(i).getDays() + " days.");
+            System.out.println("-----------------------------");
         }
     }
     
