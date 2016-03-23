@@ -11,7 +11,7 @@ public abstract class CategoryDAO {
 
     public void printCategories() {
         for (int i = 0; i < categories.size(); i++) {
-            System.out.println(categories.get(i).getName());
+            System.out.println((i + 1) + " - " + categories.get(i).getName());
         }
     }
     public void printCategoryByIndex(int i){
