@@ -33,8 +33,17 @@ public class Category {
         }
     }
     
-    public void printProjectDetails(){
-        printProjects();
-        
+    public void printProjectDetails(int i){     
+        System.out.println("You chose project: " + projects.get(i-1).getName());
+        System.out.println();
+        System.out.print(i + " - " + projects.get(i-1).getName() + ": ");
+        System.out.println(projects.get(i-1).getDescription());
+        System.out.print("Need to gather " + projects.get(i-1).getRequiredBudget() + " in ");
+        System.out.println(projects.get(i-1).getDays() + " days.");
+        System.out.println("History of the project:\n" + projects.get(i-1).getHistory());
+        System.out.println("Demo video is here: " + projects.get(i-1).getDemoVideo());
+        //TODO questions and answers
+        System.out.println();
     }
+
 }

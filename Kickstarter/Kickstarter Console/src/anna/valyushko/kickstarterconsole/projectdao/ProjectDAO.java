@@ -15,17 +15,6 @@ public abstract class ProjectDAO {
         return projects;
     }
     
-    
 
-    
-    public void printProjects(){        
-        for(int i = 0; i < projects.size(); i++){
-            System.out.print((i + 1) + " - " + projects.get(i).getName() + ": ");
-            System.out.println(projects.get(i).getDescription());
-            System.out.print("Need to gather " + projects.get(i).getRequiredBudget() + " in ");
-            System.out.println(projects.get(i).getDays() + " days.");
-            System.out.println("-----------------------------");
-        }
-    }
     
 }

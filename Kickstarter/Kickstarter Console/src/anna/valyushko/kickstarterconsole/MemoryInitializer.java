@@ -45,6 +45,16 @@ public class MemoryInitializer {
     public void printProjectsOfCategory3() {
         category3.printProjects();
     }
+    
+    public void printProjectsByIndexCategory1(int i){
+        category1.printProjectDetails(i);
+    }
+    public void printProjectsByIndexCategory2(int i){
+        category2.printProjectDetails(i);
+    }
+    public void printProjectsByIndexCategory3(int i){
+        category3.printProjectDetails(i);
+    }
     /*
      * Category category3 = categoryDAO.getCategory().get(2);
      * category3.addProject(projectDAO.getProject().get(4));

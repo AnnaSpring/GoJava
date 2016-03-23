@@ -3,6 +3,7 @@ package anna.valyushko.kickstarterconsole;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,56 +23,84 @@ public class KickstarterView {
     public static void run() {
         String environmentVar = System.getenv(DAO_MODE);
         //TODO navigation
-        if ("file".equals(environmentVar)) {
+        if ("file".equals(environmentVar)) {//TODO
             printQuoteFile();
             printCategoriesFile();
         } else if ("memory".equals(environmentVar)) {
             doMemoryStuff();
-        } else if ("sql".equals(environmentVar)) {
+        } else if ("sql".equals(environmentVar)) {//TODO
             printQuoteSql();
         }
         // pressEnterToContinue();
         
-        //TODO I see a message about what category I selected
     }
 
-    private static void doMemoryStuff() {
+    private static void doMemoryStuff() {//TODO rename this method and TODO smth with the method at all!!!!!!!!!
+        CategoryDAO categoryDAO = new CategoryDAOMemory();
+        ProjectDAO project = new ProjectDAOMemory();
         MemoryInitializer init = new MemoryInitializer();
+        init.addProjectsToCategory1();
+        init.addProjectsToCategory2();
+        init.addProjectsToCategory3();
         printQuoteMemory();
         while (true) {
             printCategoriesMemory();
-            System.out.println("Select category by its number or print \"0\" to exit:");// TODO print 0 to exit
-            int userInput = getMenuItem();
-            //TODO smth with the following полотенце
-            if (userInput == 1) {
-                printCategoryName(userInput);
-                init.addProjectsToCategory1();
-                while (true){
+            System.out.println("Select category by its number or enter \"0\" to exit:");// TODO print 0 to exit
+            int userInputCategory = getMenuItem();
+            Category category = null;
+            //int userInputProject = getMenuItem();
+               
+            if (userInputCategory == 1) {
+                category = categoryDAO.getCategory().get(userInputCategory-1);
+                categoryDAO.printCategoryByIndex(userInputCategory);
+                while(true){
                     init.printProjectsOfCategory1();
-                    
+                    System.out.println("Select project by its number or enter \"0\" to return to the categories:");
+                    int userInputProject = getMenuItem();
+                    if(userInputProject == 0)
+                        break;
+                    init.printProjectsByIndexCategory1(userInputProject);                    
+                    System.out.println("Enter \"0\" to return to the projects:");
+                    userInputProject = getMenuItem();
+                    if(userInputProject == 0)
+                        continue;
                 }
-            } else if (userInput == 2) {
-                printCategoryName(userInput);
-                init.addProjectsToCategory2();
-                init.printProjectsOfCategory2();
-            } else if (userInput == 3) {
-                printCategoryName(userInput);
-                init.addProjectsToCategory3();
-                init.printProjectsOfCategory3();
-            } else if (userInput == 0){
+            } else if (userInputCategory == 2) {
+                category = categoryDAO.getCategory().get(userInputCategory-1);
+                categoryDAO.printCategoryByIndex(userInputCategory);
+                while(true){
+                    init.printProjectsOfCategory2();
+                    System.out.println("Select project by its number or enter \"0\" to return to the categories:");
+                    int userInputProject = getMenuItem();
+                    if(userInputProject == 0)
+                        break;
+                    init.printProjectsByIndexCategory2(userInputProject); 
+                    System.out.println("Enter \"0\" to return to the projects:");
+                    userInputProject = getMenuItem();
+                    if(userInputProject == 0)
+                        continue;
+                }
+            } else if (userInputCategory == 3) {
+                category = categoryDAO.getCategory().get(userInputCategory-1);
+                categoryDAO.printCategoryByIndex(userInputCategory);
+                while(true){
+                    init.printProjectsOfCategory3();
+                    System.out.println("Select project by its number or enter \"0\" to return to the categories:");
+                    int userInputProject = getMenuItem();
+                    if(userInputProject == 0)
+                        break;
+                    init.printProjectsByIndexCategory3(userInputProject); 
+                    System.out.println("Enter \"0\" to return to the projects:");
+                    userInputProject = getMenuItem();
+                    if(userInputProject == 0)
+                        continue;
+                }
+            } else if (userInputCategory == 0){
                 break;
+            } else{
+                System.out.println("You enter incorrect number of category. Try again or enter \"0\" to exit");
             }
         }
-    }
-
-    private static String printCategoryName(int userInput) {
-        List<Category> categories = null;
-        String categoryName = null;
-        for(int i = 0; i < categories.size(); i++){
-            if(categories.get(i) == categories.get(userInput))
-                categoryName = categories.get(i).getName();
-        }
-        return ("You chose category: " + categoryName);
     }
 
     private static int getMenuItem() {
@@ -80,7 +109,6 @@ public class KickstarterView {
     }
     private static void printCategoriesMemory() {
         CategoryDAO category = new CategoryDAOMemory();
-        System.out.println("READ CATEGORIES FROM MEMORY");
         System.out.println();
         category.printCategories();
     }
