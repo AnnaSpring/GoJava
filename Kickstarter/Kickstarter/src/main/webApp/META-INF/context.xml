@@ -1,0 +1,6 @@
+<Context antiJARLocking="true" path="/JNDI">
+    <Resource name="jdbc/Kick" auth="Container" type="javax.sql.DataSource"
+               maxActive="100" maxIdle="30" maxWait="10000"
+               username="kickstarterAn" password="kickstarterAn" driverClassName="com.mysql.jdbc.Driver"
+               url="jdbc:mysql://s14.thehost.com.ua/kickstarterAn"/>
+</Context>
