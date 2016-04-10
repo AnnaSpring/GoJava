@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-import anna.kickstarter.SwitcherDAO;
-import anna.kickstarter.categorydao.CategoryDAO;
+import anna.kickstarter.dao.categorydao.CategoryDAO;
 import anna.kickstarter.domain.Category;
 
 public class CategoriesServlet extends HttpServlet {

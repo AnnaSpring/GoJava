@@ -7,14 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import anna.kickstarter.dao.projectdao.ProjectDAO;
 import anna.kickstarter.domain.Project;
-import anna.kickstarter.projectdao.ProjectDAO;
 
 public class ProjectDetailsServlet extends HttpServlet {
     

@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import anna.kickstarter.dao.quotedao.QuoteDAO;
 import anna.kickstarter.domain.Quote;
-import anna.kickstarter.quotedao.QuoteDAO;
 
 public class QuoteServlet extends HttpServlet {
    
