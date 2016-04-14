@@ -19,6 +19,7 @@ public class ProjectDAOSql implements ProjectDAO{
 
     private static final String SELECT_PROJECTS_BY_CATEGORY_ID = "SELECT id, name FROM project WHERE category_id=?";
     private static final String SELECT_PROJECT_DETAILS = "SELECT id, name, description, required_budget, days_left, history, url FROM project WHERE id=?";
+    
 
     @Autowired
     private DataSource dataSource;
@@ -77,5 +78,6 @@ public class ProjectDAOSql implements ProjectDAO{
         }    
         return project;
     }
+    
 
 }

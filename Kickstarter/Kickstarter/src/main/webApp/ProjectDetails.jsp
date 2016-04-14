@@ -18,5 +18,8 @@
 	        <p>History: ${project.history}</p>
 	        <p>Video URL: ${project.url}</p>
         </div>
+        <div>
+            <input type="button" onclick="location.href='payment?projectId=${project.id}';" value="Invest into this project">
+        </div>
     </body>
 </html>
