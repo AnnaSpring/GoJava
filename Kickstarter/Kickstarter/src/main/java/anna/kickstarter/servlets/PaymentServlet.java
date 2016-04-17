@@ -40,7 +40,7 @@ public class PaymentServlet extends HttpServlet {
         
         List<Payment> payments = new ArrayList<>();
         try {
-            payments.add((Payment) paymentDAO.getPaymentsByProject_id(projectId));//TODO ????? cast
+            payments.add((Payment) paymentDAO.getPaymentsById(projectId));//TODO ????? cast
         } catch (Exception e){
             e.printStackTrace();
         }

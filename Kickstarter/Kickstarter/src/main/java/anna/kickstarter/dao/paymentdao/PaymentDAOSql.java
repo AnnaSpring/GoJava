@@ -3,7 +3,6 @@ package anna.kickstarter.dao.paymentdao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +22,8 @@ public class PaymentDAOSql implements PaymentDAO {
 
     @Override
     public void insertPayment(Payment payment) {
-        try(Connection connection = dataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(INSERT_PAYMENT_DATA)){
+        try(Connection connection = dataSource.getConnection();
+                PreparedStatement statement = connection.prepareStatement(INSERT_PAYMENT_DATA)){
             statement.setInt(1, payment.getProject_id());
             statement.setString(2, payment.getCardholderName());
             statement.setString(3, payment.getCardNumber());
@@ -35,11 +35,12 @@ public class PaymentDAOSql implements PaymentDAO {
         
     }
     @Override
-    public List<Payment> getPaymentsByProject_id(int project_id) {
+    public List<Payment> getPaymentsById(int projectId) {
         List<Payment> payments = new ArrayList<>();
         Payment payment = new Payment();
-        try(Connection connection = dataSource.getConnection(); PreparedStatement statement = connection.prepareStatement(SELECT_PAYMENT_DATA)){
-            statement.setInt(1, project_id);
+        try(Connection connection = dataSource.getConnection();
+                PreparedStatement statement = connection.prepareStatement(SELECT_PAYMENT_DATA)){
+            statement.setInt(1, projectId);
             ResultSet rs = statement.executeQuery();
             while(rs.next()) {
                 int id = rs.getInt("id");

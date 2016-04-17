@@ -2,7 +2,7 @@ package anna.kickstarter.domain;
 
 public class Payment {
     private int id;
-    private int project_id;
+    private int projectId;
     private String cardholderName;
     private String cardNumber;
     private int amount;
@@ -14,10 +14,10 @@ public class Payment {
         this.id = id;
     }
     public int getProject_id() {
-        return project_id;
+        return projectId;
     }
-    public void setProject_id(int project_id) {
-        this.project_id = project_id;
+    public void setProject_id(int projectId) {
+        this.projectId = projectId;
     }
     public String getCardholderName() {
         return cardholderName;

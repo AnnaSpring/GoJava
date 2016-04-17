@@ -6,5 +6,5 @@ import anna.kickstarter.domain.Payment;
 
 public interface PaymentDAO {
     public void insertPayment(Payment payment);
-    public List<Payment> getPaymentsByProject_id(int project_id);
+    public List<Payment> getPaymentsById(int projectId);
 }
