@@ -11,7 +11,7 @@ public class Project {
     private int days;
     private String url;
     private String history;
-    private List<String> questionsAnswers;
+    private List<String> questions;
     
     public int getId() {
         return id;
@@ -61,11 +61,11 @@ public class Project {
     public void setHistory(String history) {
         this.history = history;
     }
-    public List<String> getQuestionsAnswers() {
-        return questionsAnswers;
+    public List<String> getQuestions() {
+        return questions;
     }
-    public void setQuestionsAnswers(List<String> questionsAnswers) {
-        this.questionsAnswers = questionsAnswers;
+    public void setQuestions(List<String> questions) {
+        this.questions = questions;
     }
 
     
